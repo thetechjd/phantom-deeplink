@@ -28,15 +28,15 @@ const connect = async () => {
 const connect = async () => {
   // TODO
   const params = await new URLSearchParams({
+    dapp_encryption_public_key: bs58.encode(dappKeyPair.publicKey),
     cluster: "devnet",
     app_url: "https://portal.cryptocadet.app",
-    dapp_encryption_public_key: bs58.encode(dappKeyPair.publicKey),
     redirect_link: "https://portal.cryptocadet.app"
   });
 
   console.log(params.get("app_url"))
 
-  const url = `https://phantom.app/ul/v1/connect?${params.get("cluster")}&${params.get("app_url")}&${params.get("dapp_encryption_public_key")}&${params.get("redirect_link")}`;
+  const url = `https://phantom.app/ul/v1/connect?${params.get("dapp_encryption_public_key")}&${params.get("cluster")}&${params.get("app_url")}&${params.get("redirect_link")}`;
  window.location.href = url;
 };
 
