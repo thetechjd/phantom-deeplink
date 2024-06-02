@@ -27,16 +27,25 @@ const connect = async () => {
 // Initiate a new connection to Phantom
 const connect = async () => {
  
-  const params =  new URLSearchParams({
+  /* const params =  new URLSearchParams({
     dapp_encryption_public_key: bs58.encode(dappKeyPair.publicKey),
     cluster: "devnet",
     app_url: "https://portal.cryptocadet.app",
     redirect_link: `https://portal.cryptocadet.app?pubKey=ntjCcsamqnVIrV8kCmYM4nllTqBgAtnql0S&prod=sometestid0&email=required`
   });
 
-  console.log(params.toString())
+  console.log(params.toString()) */
 
-  const url = `https://phantom.app/ul/browse/https://portal.cryptocadet.app?pubKey=ntjCcsamqnVIrV8kCmYM4nllTqBgAtnql0S&prod=sometestid0&email=required`;
+  const queryParams = new URLSearchParams({
+    pubKey: "ntjCcsamqnVIrV8kCmYM4nllTqBgAtnql0S",
+    prod: "sometestid0",
+    email: "required"
+  });
+  
+  // URL-encode the entire app URL along with its query parameters
+  const encodedUrl = encodeURIComponent(`https://portal.cryptocadet.app?${queryParams.toString()}`);
+
+  const url = `https://phantom.app/ul/browse/${encodedUrl}`;
  window.location.href = url;
 };
 
