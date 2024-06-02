@@ -31,10 +31,7 @@ const connect = async () => {
     dapp_encryption_public_key: bs58.encode(dappKeyPair.publicKey),
     cluster: "devnet",
     app_url: "https://portal.cryptocadet.app",
-    redirect_link: "https://portal.cryptocadet.app",
-    pubKey: 'ntjCcsamqnVIrV8kCmYM4nllTqBgAtnql0S',
-    productId: 'sometestid0',
-    email: 'required'
+    redirect_link: `https://portal.cryptocadet.app?pubKey=ntjCcsamqnVIrV8kCmYM4nllTqBgAtnql0S&productId=sometestid0&email=required`
   });
 
   console.log(params.toString())
