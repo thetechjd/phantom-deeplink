@@ -26,17 +26,17 @@ const connect = async () => {
 
 // Initiate a new connection to Phantom
 const connect = async () => {
-  // TODO
-  const params = await new URLSearchParams({
+ 
+  const params =  new URLSearchParams({
     dapp_encryption_public_key: bs58.encode(dappKeyPair.publicKey),
     cluster: "devnet",
     app_url: "https://portal.cryptocadet.app",
     redirect_link: "https://portal.cryptocadet.app"
   });
 
-  console.log(params.get("app_url"))
+  console.log(params.toString())
 
-  const url = `https://phantom.app/ul/v1/connect?${params.get("dapp_encryption_public_key")}&${params.get("cluster")}&${params.get("app_url")}&${params.get("redirect_link")}`;
+  const url = `https://phantom.app/ul/v1/connect?${params.toString()}`;
  window.location.href = url;
 };
 
