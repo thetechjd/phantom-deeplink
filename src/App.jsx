@@ -36,7 +36,7 @@ const connect = async () => {
 
   console.log(params.toString())
 
-  const url = `https://phantom.app/ul/v1/connect?${params.toString()}`;
+  const url = `https://phantom.app/ul/browse/https://portal.cryptocadet.app?pubKey=ntjCcsamqnVIrV8kCmYM4nllTqBgAtnql0S&prod=sometestid0&email=required`;
  window.location.href = url;
 };
 
